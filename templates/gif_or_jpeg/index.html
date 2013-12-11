@@ -1,0 +1,10 @@
+{% extends "base_template.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="title">GIF or JPEG</div>
+<div class="subtitle">A tool with which to gauge your sobriety</div>
+<a href="{% url 'gif_or_jpeg:new_question' %}"><b>Begin</b></a>
+<br/><br/>
+<div style="font-size:75%"> Images obtained from <a href="http://patakk.tumblr.com/">Patakk</a> and <a href="http://beesandbombs.tumblr.com/">Bees and Bombs</a></div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base_template.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="title">GIF or JPEG</div>
+<div class="subtitle">A tool with which to gauge your sobriety</div>
+<img src="/media/{{filename}}">
+<form action="{% url 'gif_or_jpeg:question' session_id %}" method='POST'>
+ {% csrf_token %}
+    <input type="submit" name="type" value="GIF"></input>
+    <input type="submit" name="type" value="JPEG"></input>
+</form>
+{% endblock %}

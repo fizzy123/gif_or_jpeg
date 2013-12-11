@@ -1,0 +1,31 @@
+{% extends "base_template.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="title">GIF or JPEG</div>
+<div class="subtitle">A tool with which to gauge your sobriety</div>
+<div> Your score is <b>{{ score }} out of 10</b></div>
+<br/>
+<div>You are<br/><b>
+        {% if score < 4 %}
+            TRIPPING BALLS. Are you even able to read this?
+        {% elif score < 8  %}
+            Enjoying the ride.
+        {% elif score < 10 %}
+            Taking it easy.
+        {% else %}
+            Stone cold sober.
+        {% endif %}
+</b></div>
+<h3>Answers</h3>
+<div>
+{% for answer in answers %}
+<div>
+    <h4>{{ forloop.counter }}</h4>
+<img src="/media/{{ answer.filename }}{{ answer.type }}">
+{{ answer.type }}<br/>
+You got this question <b>{% if answer.correct %}CORRECT{% else %}WRONG{% endif %}!</b>
+</div><br/>
+{% endfor %}
+</div>
+{% endblock %}
